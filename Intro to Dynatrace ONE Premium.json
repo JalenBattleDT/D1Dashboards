@@ -1,0 +1,159 @@
+ {
+  "metadata": {
+    "configurationVersions": [
+      5
+    ],
+    "clusterVersion": "1.230.108.20211123-162857"
+  },
+  "id": "0d375ca5-1ae8-4afb-98cf-8f8b47381705",
+  "dashboardMetadata": {
+    "name": "Intro to Dynatrace ONE Premium",
+    "shared": true,
+    "owner": "jalen.battle@dynatrace.com",
+    "dashboardFilter": {
+      "timeframe": "-30m",
+      "managementZone": {
+        "id": "all",
+        "name": "All"
+      }
+    },
+    "tags": [
+      "Dynatrace ONE Premium",
+      "Info",
+      "Template"
+    ],
+    "preset": true
+  },
+  "tiles": [
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 0,
+        "width": 380,
+        "height": 190
+      },
+      "tileFilter": {},
+      "markdown": "### Resources To Get Started\n\n___\n\n📚  [Dynatrace Documentation](https://help.dynatrace.com)\n  \n\n🎓 [Dynatrace University](https://university.dynatrace.com)\n\n❔  [Dynatrace Forums](https://answers.dynatrace.com/index.html)\n\n\n📝 [Product Release Notes](https://www.dynatrace.com/support/help/whats-new/release-notes/)\n"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 152,
+        "left": 380,
+        "width": 570,
+        "height": 342
+      },
+      "tileFilter": {},
+      "markdown": "### Meet your Dynatrace One Premium Account Team\n\n---\n* Product Specialist\n  * **${PS}**\n   * Technical Resource for all things Dynatrace \n    * ${PSEmail}\n \n\n* Customer Success Manager\n  * **${CSM}**\n   * Long term organization success planning and best practices. \n    * {CSMEmail}\n\n* For immediate help or questions message our team in chat! 💬\n * To get started click the chat bubble icon in the top right corner.\n\n\n\n\n"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 950,
+        "width": 456,
+        "height": 304
+      },
+      "tileFilter": {},
+      "markdown": "### Keys to Success\n---\n1. Attend your scheduled coaching sessions.\n2. Utilize live chat for any questions you have in product. To chat click the top right chat icon on the screen.↗\n\n3. Encourage others to join Dynatrace by deploying the oneagent and joining coaching sessions.\n\n4. Understand the Smartscape. Its how Dynatrace organizes the data we collect and the easiest way to get more comfortable with the product\n"
+    },
+    {
+      "name": "Host health",
+      "tileType": "HOSTS",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 380,
+        "width": 190,
+        "height": 152
+      },
+      "tileFilter": {},
+      "chartVisible": true
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 190,
+        "left": 0,
+        "width": 380,
+        "height": 608
+      },
+      "tileFilter": {},
+      "markdown": "### [The Smartscape](#smartscape;gf=all)\n---\n\n1. Datacenter\n * Physical location where Host resides\n2. [Hosts](#newhosts;gf=all;gtf=l_2_HOURS)\n * A physical or virtualized operating system\n    * Windows \n    * Linux\n3. [Processes](#newprocessessummary;gf=all;gtf=l_2_HOURS)\n * A currently executing computer program on a host\n    * Java JVM\n    * .Net Process\n4. [Services](#newservices;filter=anyFilter;gtf=l_2_HOURS;gf=all)\n * A set of code or classes that performs some type of business logic\n    * Transactions\n    * Response Time\n    * Failure Rate\n    * Purepaths\n  * [Databases](#databases;gf=all;gtf=l_2_HOURS;sortmode=mode_service_load) are Services\n5. [Applications](#uemapplications;gf=all;gtf=l_2_HOURS)\n  * The point that end users interact with Services to perform business logic \n    * Think User Analytics\n\n\n\n\n\n"
+    },
+    {
+      "name": "Service health",
+      "tileType": "SERVICES",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 570,
+        "width": 190,
+        "height": 152
+      },
+      "tileFilter": {},
+      "chartVisible": true
+    },
+    {
+      "name": "Application health",
+      "tileType": "APPLICATIONS",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 760,
+        "width": 190,
+        "height": 152
+      },
+      "tileFilter": {},
+      "chartVisible": true
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 304,
+        "left": 950,
+        "width": 456,
+        "height": 494
+      },
+      "tileFilter": {},
+      "markdown": "### Dynatrace Key Terms\n---\n\n1. [Dynatrace OneAgent](https://www.dynatrace.com/support/help/shortlink/oneagent-hub)\n * OneAgent is responsible for collecting all monitoring data within your monitored environment. A single OneAgent per host is required to collect all relevant monitoring data—even if your hosts are deployed within Docker containers, microservices architectures, or cloud-based infrastructure.\n2. [Smartscape](https://www.dynatrace.com/support/help/shortlink/smartscape)\n * Smartscape visualizes your entire application environment. Smartscape auto-discovery delivers a quick and efficient overview of all the topological dependencies in your infrastructure, processes, and services, \n\n4. [Dynatrace Glossary](https://www.dynatrace.com/support/help/reference)\n"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 646,
+        "left": 380,
+        "width": 570,
+        "height": 380
+      },
+      "tileFilter": {},
+      "markdown": "## Coaching Session Meeting Information\n----\n**What?**\n\n* Dedicated meetings with your product specialist for all things Dynatrace.\n\n   * Training\n   * Deployment\n   * Triaging\n   * Organization & Administration\n   * Open Q&A\n     \n\n**When?**\n  \n* TBD\n\n##  **[Coaching Session Meeting Link](dynatrace.com)**\n\n\n\n\n\n\n "
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 494,
+        "left": 380,
+        "width": 570,
+        "height": 152
+      },
+      "tileFilter": {},
+      "markdown": "### Meet your Admin Team\n\n---\n* Dynatrace Admins\n  * **${AdminTeam}**\n   * Internal resource for Dynatrace configuration  \n    * ${AdminTeamEmail}\n    \n \n\n\n\n"
+    }
+  ]
+}
