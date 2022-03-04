@@ -1,9 +1,9 @@
- {
+{
   "metadata": {
     "configurationVersions": [
       5
     ],
-    "clusterVersion": "1.230.108.20211123-162857"
+    "clusterVersion": "1.235.149.20220221-150413"
   },
   "id": "e9ac27be-0546-4b0f-a1e3-68448a144e18",
   "dashboardMetadata": {
@@ -16,7 +16,9 @@
         "id": "all",
         "name": "All"
       }
-    }
+    },
+    "preset": true,
+    "popularity": 1
   },
   "tiles": [
     {
@@ -44,73 +46,6 @@
       },
       "tileFilter": {},
       "markdown": "# Davis Data Units (DDUs)\n\n* Read more about DDUs [here](https://www.dynatrace.com/support/help/shortlink/davis-data-units)\n\n## Included DDUs\n* 1000 Metrics (525,600 DDUs) are included per Host Unit\n\n## Metrics\n\n* Each Metric data point = 0.001 DDU\n\n* 1 Metric = 525.6 DDUs per Year\n\n* 1 data point x 60 min x 24 hours x 365 days x 0.001 DDU weight = 525.6 DDUs per year, per metric.\n\n\n\n## Logs\n* One Log Entry = 0.0005 DDUs\n* 1 DDU = 2000 Log Entries\n\n## Serverless\n* 1 AWS Lambda Function Invocation = 0.002 DDUs\n\n* 1 DDU = 500 AWS Lambda Function Invocations"
-    },
-    {
-      "name": "Third-party Results Total",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 1938,
-        "left": 0,
-        "width": 304,
-        "height": 304
-      },
-      "tileFilter": {},
-      "customName": "Explorer results",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "builtin:billing.synthetic.external",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "nestedFilters": [],
-            "criteria": []
-          },
-          "limit": 1,
-          "metricSelector": "builtin:billing.synthetic.external:(fold,):splitBy():avg:auto:sort(value(avg,descending)):limit(1)",
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
-        "rules": [
-          {
-            "matcher": "A:",
-            "properties": {
-              "seriesType": "LINE"
-            }
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "visible": true
-          }
-        ]
-      }
     },
     {
       "name": "Third-party Results per Test",
@@ -144,16 +79,15 @@
       ],
       "visualConfig": {
         "type": "GRAPH_CHART",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A:",
             "properties": {
+              "color": "DEFAULT",
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -213,83 +147,15 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A:",
             "properties": {
+              "color": "DEFAULT",
               "seriesType": "LINE"
-            }
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "visible": true
-          }
-        ]
-      }
-    },
-    {
-      "name": "DDUs Billed from Metrics Total",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 2318,
-        "left": 0,
-        "width": 304,
-        "height": 304
-      },
-      "tileFilter": {},
-      "customName": "Explorer results",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "builtin:billing.ddu.metrics.total",
-          "spaceAggregation": "SUM",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "nestedFilters": [],
-            "criteria": []
-          },
-          "limit": 1,
-          "metricSelector": "builtin:billing.ddu.metrics.total:(fold,):splitBy():sum:auto:sort(value(avg,descending)):limit(1)",
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
-        "rules": [
-          {
-            "matcher": "A:",
-            "properties": {
-              "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -349,11 +215,17 @@
       ],
       "visualConfig": {
         "type": "GRAPH_CHART",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
-        "rules": [],
+        "global": {},
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
+          }
+        ],
         "axes": {
           "xAxis": {
             "visible": true
@@ -411,83 +283,15 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A:",
             "properties": {
+              "color": "DEFAULT",
               "seriesType": "LINE"
-            }
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "visible": true
-          }
-        ]
-      }
-    },
-    {
-      "name": "DDUs Billed from Serverless Total",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 2622,
-        "left": 0,
-        "width": 304,
-        "height": 304
-      },
-      "tileFilter": {},
-      "customName": "Explorer results",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "builtin:billing.ddu.serverless.total",
-          "spaceAggregation": "SUM",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "nestedFilters": [],
-            "criteria": []
-          },
-          "limit": 1,
-          "metricSelector": "builtin:billing.ddu.serverless.total:(fold,):splitBy():sum:auto:sort(value(avg,descending)):limit(1)",
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
-        "rules": [
-          {
-            "matcher": "A:",
-            "properties": {
-              "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -547,11 +351,17 @@
       ],
       "visualConfig": {
         "type": "GRAPH_CHART",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
-        "rules": [],
+        "global": {},
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
+          }
+        ],
         "axes": {
           "xAxis": {
             "visible": true
@@ -609,83 +419,15 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A:",
             "properties": {
+              "color": "DEFAULT",
               "seriesType": "LINE"
-            }
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "visible": true
-          }
-        ]
-      }
-    },
-    {
-      "name": "DDUs Billed from Logs Total",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 2926,
-        "left": 0,
-        "width": 304,
-        "height": 304
-      },
-      "tileFilter": {},
-      "customName": "Explorer results",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "builtin:billing.ddu.log.total",
-          "spaceAggregation": "SUM",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "nestedFilters": [],
-            "criteria": []
-          },
-          "limit": 1,
-          "metricSelector": "builtin:billing.ddu.log.total:(fold,):splitBy():sum:auto:sort(value(avg,descending)):limit(1)",
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
-        "rules": [
-          {
-            "matcher": "A:",
-            "properties": {
-              "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -745,16 +487,15 @@
       ],
       "visualConfig": {
         "type": "GRAPH_CHART",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A:",
             "properties": {
+              "color": "DEFAULT",
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -814,16 +555,15 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A:",
             "properties": {
+              "color": "DEFAULT",
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -849,292 +589,6 @@
             "visible": true
           }
         ]
-      }
-    },
-    {
-      "name": "Sessions with Replay Total",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 418,
-        "left": 0,
-        "width": 304,
-        "height": 304
-      },
-      "tileFilter": {},
-      "customName": "Sessions with Replay Total",
-      "queries": [
-        {
-          "id": "A",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "filterBy": {
-            "nestedFilters": [],
-            "criteria": []
-          },
-          "metricSelector": "(builtin:billing.apps.web.sessionsWithReplayByApplication:splitBy():sum:auto:sort(value(sum,descending)):limit(10))+(builtin:billing.apps.mobile.sessionsWithReplayByApplication:splitBy():sum:auto:sort(value(sum,descending)):limit(10))",
-          "enabled": true
-        },
-        {
-          "id": "B",
-          "metric": "builtin:billing.apps.mobile.sessionsWithReplayByApplication",
-          "spaceAggregation": "SUM",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "nestedFilters": [],
-            "criteria": []
-          },
-          "enabled": false
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
-        "rules": [],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": [
-            {
-              "displayName": "",
-              "visible": true,
-              "min": "AUTO",
-              "max": "AUTO",
-              "position": "LEFT",
-              "queryIds": [
-                "A",
-                ""
-              ],
-              "defaultAxis": true
-            }
-          ]
-        },
-        "singleValueSettings": {
-          "showSparkLine": true
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "visible": true
-          }
-        ]
-      }
-    },
-    {
-      "name": "User Actions and Session Properties Total",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 1026,
-        "left": 0,
-        "width": 304,
-        "height": 304
-      },
-      "tileFilter": {},
-      "customName": "User Actions and Session Properties Total",
-      "queries": [
-        {
-          "id": "B",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "filterBy": {
-            "nestedFilters": [],
-            "criteria": []
-          },
-          "metricSelector": "(builtin:billing.apps.web.userActionPropertiesByApplication:splitBy():sum:auto:sort(value(sum,descending)):limit(10))+(builtin:billing.apps.mobile.userActionPropertiesByMobileApplication:splitBy():sum:auto:sort(value(sum,descending)):limit(10))+(builtin:billing.apps.custom.userActionPropertiesByDeviceApplication:splitBy():sum:auto:sort(value(sum,descending)):limit(10))",
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
-        "rules": [],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": [
-            {
-              "displayName": "",
-              "visible": true,
-              "min": "AUTO",
-              "max": "AUTO",
-              "position": "LEFT",
-              "queryIds": [
-                "B",
-                ""
-              ],
-              "defaultAxis": true
-            }
-          ]
-        },
-        "singleValueSettings": {
-          "showSparkLine": true
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "visible": true
-          }
-        ]
-      }
-    },
-    {
-      "name": "Synthetic Actions Total",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 1330,
-        "left": 0,
-        "width": 304,
-        "height": 304
-      },
-      "tileFilter": {},
-      "customName": "Synthetic Actions Total",
-      "queries": [
-        {
-          "id": "A",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "nestedFilters": [],
-            "criteria": []
-          },
-          "metricSelector": "builtin:billing.synthetic.actions:splitBy():value:auto:sort(value(sum,descending)):limit(10)",
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
-        "rules": [
-          {
-            "matcher": "A",
-            "properties": {
-              "seriesType": "LINE"
-            }
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": [
-            {
-              "displayName": "",
-              "visible": true,
-              "min": "AUTO",
-              "max": "AUTO",
-              "position": "LEFT",
-              "queryIds": [
-                "A",
-                ""
-              ],
-              "defaultAxis": true
-            }
-          ]
-        },
-        "thresholds": []
-      }
-    },
-    {
-      "name": "Synthetic Requests Total",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 1634,
-        "left": 0,
-        "width": 304,
-        "height": 304
-      },
-      "tileFilter": {},
-      "customName": "Synthetic Requests Total",
-      "queries": [
-        {
-          "id": "A",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "nestedFilters": [],
-            "criteria": []
-          },
-          "metricSelector": "builtin:billing.synthetic.requests:splitBy():value:auto:sort(value(sum,descending)):limit(10)",
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
-        "rules": [
-          {
-            "matcher": "A",
-            "properties": {
-              "seriesType": "LINE"
-            }
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": [
-            {
-              "displayName": "",
-              "visible": true,
-              "min": "AUTO",
-              "max": "AUTO",
-              "position": "LEFT",
-              "queryIds": [
-                "A",
-                ""
-              ],
-              "defaultAxis": true
-            }
-          ]
-        },
-        "thresholds": []
       }
     },
     {
@@ -1177,11 +631,25 @@
       ],
       "visualConfig": {
         "type": "GRAPH_CHART",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
-        "rules": [],
+        "global": {},
+        "rules": [
+          {
+            "matcher": "B:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "C:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
+          }
+        ],
         "axes": {
           "xAxis": {
             "displayName": "",
@@ -1273,11 +741,33 @@
       ],
       "visualConfig": {
         "type": "GRAPH_CHART",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
-        "rules": [],
+        "global": {},
+        "rules": [
+          {
+            "matcher": "B:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "C:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "D:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
+          }
+        ],
         "axes": {
           "xAxis": {
             "displayName": "",
@@ -1298,80 +788,6 @@
               "defaultAxis": true
             }
           ]
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "visible": true
-          }
-        ]
-      }
-    },
-    {
-      "name": "Sessions without Replay Total",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 722,
-        "left": 0,
-        "width": 304,
-        "height": 304
-      },
-      "tileFilter": {},
-      "customName": "Sessions without Replay Total",
-      "queries": [
-        {
-          "id": "A",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "filterBy": {
-            "nestedFilters": [],
-            "criteria": []
-          },
-          "metricSelector": "(builtin:billing.apps.mobile.sessionsWithoutReplayByApplication:splitBy():sum:auto:sort(value(sum,descending)):limit(10))+(builtin:billing.apps.web.sessionsWithoutReplayByApplication:splitBy():sum:auto:sort(value(sum,descending)):limit(10))+(builtin:billing.apps.custom.sessionsWithoutReplayByApplication:splitBy():sum:auto:sort(value(sum,descending)):limit(10))",
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
-        "rules": [],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": [
-            {
-              "displayName": "",
-              "visible": true,
-              "min": "AUTO",
-              "max": "AUTO",
-              "position": "LEFT",
-              "queryIds": [
-                "A",
-                ""
-              ],
-              "defaultAxis": true
-            }
-          ]
-        },
-        "singleValueSettings": {
-          "showSparkLine": true
         },
         "thresholds": [
           {
@@ -1444,11 +860,33 @@
       ],
       "visualConfig": {
         "type": "GRAPH_CHART",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
-        "rules": [],
+        "global": {},
+        "rules": [
+          {
+            "matcher": "B:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "C:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "D:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
+          }
+        ],
         "axes": {
           "xAxis": {
             "displayName": "",
@@ -1517,16 +955,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -1579,16 +1023,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -1641,16 +1091,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -1703,16 +1159,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -1765,16 +1227,22 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A",
             "properties": {
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -1827,11 +1295,17 @@
       ],
       "visualConfig": {
         "type": "GRAPH_CHART",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
-        "rules": [],
+        "global": {},
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
+          }
+        ],
         "axes": {
           "xAxis": {
             "displayName": "",
@@ -1898,11 +1372,17 @@
       ],
       "visualConfig": {
         "type": "GRAPH_CHART",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
-        "rules": [],
+        "global": {},
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
+          }
+        ],
         "axes": {
           "xAxis": {
             "displayName": "",
@@ -1942,72 +1422,6 @@
       }
     },
     {
-      "name": "DDUs Billed from Events Total",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 3230,
-        "left": 0,
-        "width": 304,
-        "height": 304
-      },
-      "tileFilter": {},
-      "customName": "Explorer results",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "builtin:billing.ddu.events.byEntity",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "nestedFilters": [],
-            "criteria": []
-          },
-          "limit": 1,
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
-        "rules": [
-          {
-            "matcher": "A:",
-            "properties": {
-              "seriesType": "LINE"
-            }
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "visible": true
-          }
-        ]
-      }
-    },
-    {
       "name": "DDUs Billed from Events per Entity",
       "tileType": "DATA_EXPLORER",
       "configured": true,
@@ -2034,11 +1448,17 @@
       ],
       "visualConfig": {
         "type": "GRAPH_CHART",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
-        "rules": [],
+        "global": {},
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
+          }
+        ],
         "axes": {
           "xAxis": {
             "visible": true
@@ -2091,75 +1511,15 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
-        "rules": [],
-        "axes": {
-          "xAxis": {
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "visible": true
-          }
-        ]
-      }
-    },
-    {
-      "name": "DDUs Billed from Traces Total",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 3534,
-        "left": 0,
-        "width": 304,
-        "height": 304
-      },
-      "tileFilter": {},
-      "customName": "Explorer results",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "builtin:billing.ddu.traces.total",
-          "spaceAggregation": "SUM",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "nestedFilters": [],
-            "criteria": []
-          },
-          "limit": 1,
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
+        "global": {},
         "rules": [
           {
             "matcher": "A:",
             "properties": {
+              "color": "DEFAULT",
               "seriesType": "LINE"
-            }
+            },
+            "seriesOverrides": []
           }
         ],
         "axes": {
@@ -2171,64 +1531,6 @@
         "thresholds": [
           {
             "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "visible": true
-          }
-        ]
-      }
-    },
-    {
-      "name": "DDUs Billed from Traces per Entity",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 3534,
-        "left": 304,
-        "width": 608,
-        "height": 304
-      },
-      "tileFilter": {},
-      "customName": "Explorer results",
-      "queries": [
-        {
-          "id": "A",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "filterBy": {
-            "nestedFilters": [],
-            "criteria": []
-          },
-          "metricSelector": "builtin:billing.ddu.traces.byEntity:splitBy(\"dt.entity.monitored_entity\"):avg:auto:sort(value(avg,descending))",
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "GRAPH_CHART",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
-        "rules": [],
-        "axes": {
-          "xAxis": {
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "columnId": "Davis data units traces consumption by monitored entity",
             "rules": [
               {
                 "color": "#7dc540"
@@ -2272,11 +1574,17 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
-        "rules": [],
+        "global": {},
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
+          }
+        ],
         "axes": {
           "xAxis": {
             "visible": true
@@ -2339,11 +1647,17 @@
       ],
       "visualConfig": {
         "type": "TOP_LIST",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
-        "rules": [],
+        "global": {},
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
+          }
+        ],
         "axes": {
           "xAxis": {
             "displayName": "",
@@ -2367,81 +1681,6 @@
           {
             "axisTarget": "LEFT",
             "columnId": "Davis data units included metrics per host",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "visible": true
-          }
-        ]
-      }
-    },
-    {
-      "name": "Average Total Host Units",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 38,
-        "left": 0,
-        "width": 304,
-        "height": 304
-      },
-      "tileFilter": {
-        "timeframe": "-60m to -30m"
-      },
-      "customName": "Explorer results",
-      "queries": [
-        {
-          "id": "A",
-          "timeAggregation": "DEFAULT",
-          "metricSelector": "(builtin:billing.ddu.includedMetricPerHost:splitBy():sum:auto:sort(value(sum,descending)):limit(1))/(1000)/(30)",
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
-        "rules": [
-          {
-            "matcher": "A:",
-            "properties": {
-              "seriesType": "LINE"
-            }
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": [
-            {
-              "displayName": "",
-              "visible": true,
-              "min": "AUTO",
-              "max": "AUTO",
-              "position": "LEFT",
-              "queryIds": [
-                "A",
-                ""
-              ],
-              "defaultAxis": true
-            }
-          ]
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
             "rules": [
               {
                 "color": "#7dc540"
@@ -2521,11 +1760,17 @@
       ],
       "visualConfig": {
         "type": "GRAPH_CHART",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE"
-        },
-        "rules": [],
+        "global": {},
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
+          }
+        ],
         "axes": {
           "xAxis": {
             "displayName": "",
@@ -2563,6 +1808,1090 @@
             "visible": true
           }
         ]
+      }
+    },
+    {
+      "name": "Average Total Host Units",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 0,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": "-60m to -30m"
+      },
+      "customName": "Explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "timeAggregation": "DEFAULT",
+          "metricSelector": "(builtin:billing.ddu.includedMetricPerHost:splitBy():sum:auto:sort(value(sum,descending)):limit(1))/(1000)/(30):default(0)",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT"
+            },
+            "seriesOverrides": []
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": [
+            {
+              "displayName": "",
+              "visible": true,
+              "min": "AUTO",
+              "max": "AUTO",
+              "position": "LEFT",
+              "queryIds": [
+                "A",
+                ""
+              ],
+              "defaultAxis": true
+            }
+          ]
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "honeycombSettings": {}
+      },
+      "queriesSettings": {
+        "resolution": ""
+      }
+    },
+    {
+      "name": "Sessions without Replay Total",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 722,
+        "left": 0,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {},
+      "customName": "Sessions without Replay Total",
+      "queries": [
+        {
+          "id": "A",
+          "timeAggregation": "DEFAULT",
+          "metricSelector": "(builtin:billing.apps.mobile.sessionsWithoutReplayByApplication:splitBy():sum:auto:sort(value(sum,descending)):limit(10):default(0))+(builtin:billing.apps.web.sessionsWithoutReplayByApplication:splitBy():sum:auto:sort(value(sum,descending)):limit(10):default(0))+(builtin:billing.apps.custom.sessionsWithoutReplayByApplication:splitBy():sum:auto:sort(value(sum,descending)):limit(10)):default(0)",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT"
+            },
+            "seriesOverrides": []
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": [
+            {
+              "displayName": "",
+              "visible": true,
+              "min": "AUTO",
+              "max": "AUTO",
+              "position": "LEFT",
+              "queryIds": [
+                "A",
+                ""
+              ],
+              "defaultAxis": true
+            }
+          ]
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": false,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": false
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "honeycombSettings": {}
+      },
+      "queriesSettings": {
+        "resolution": ""
+      }
+    },
+    {
+      "name": "Sessions with Replay Total",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 418,
+        "left": 0,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {},
+      "customName": "Sessions with Replay Total",
+      "queries": [
+        {
+          "id": "A",
+          "timeAggregation": "DEFAULT",
+          "metricSelector": "(builtin:billing.apps.web.sessionsWithReplayByApplication:splitBy():sum:auto:sort(value(sum,descending)):limit(10):default(0))+(builtin:billing.apps.mobile.sessionsWithReplayByApplication:splitBy():sum:auto:sort(value(sum,descending)):limit(10)):default(0)",
+          "enabled": true
+        },
+        {
+          "id": "B",
+          "timeAggregation": "DEFAULT",
+          "metricSelector": "builtin:billing.apps.mobile.sessionsWithReplayByApplication:splitBy():sum:auto:sort(value(sum,descending)):limit(10):default(0)",
+          "enabled": false
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "B:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": false,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": false
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "honeycombSettings": {}
+      },
+      "queriesSettings": {
+        "resolution": ""
+      }
+    },
+    {
+      "name": "User Actions and Session Properties Total",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 1026,
+        "left": 0,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {},
+      "customName": "User Actions and Session Properties Total",
+      "queries": [
+        {
+          "id": "B",
+          "timeAggregation": "DEFAULT",
+          "metricSelector": "(builtin:billing.apps.web.userActionPropertiesByApplication:splitBy():sum:auto:sort(value(sum,descending)):limit(10):default(0))+(builtin:billing.apps.mobile.userActionPropertiesByMobileApplication:splitBy():sum:auto:sort(value(sum,descending)):limit(10):default(0))+(builtin:billing.apps.custom.userActionPropertiesByDeviceApplication:splitBy():sum:auto:sort(value(sum,descending)):limit(10):default(0))",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "B:",
+            "properties": {
+              "color": "DEFAULT"
+            },
+            "seriesOverrides": []
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": [
+            {
+              "displayName": "",
+              "visible": true,
+              "min": "AUTO",
+              "max": "AUTO",
+              "position": "LEFT",
+              "queryIds": [
+                "B",
+                ""
+              ],
+              "defaultAxis": true
+            }
+          ]
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": false,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": false
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "honeycombSettings": {}
+      },
+      "queriesSettings": {
+        "resolution": ""
+      }
+    },
+    {
+      "name": "Synthetic Actions Total",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 1330,
+        "left": 0,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {},
+      "customName": "Synthetic Actions Total",
+      "queries": [
+        {
+          "id": "A",
+          "timeAggregation": "DEFAULT",
+          "metricSelector": "builtin:billing.synthetic.actions:splitBy():value:auto:sort(value(sum,descending)):limit(10):default(0)",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT"
+            },
+            "seriesOverrides": []
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": [
+            {
+              "displayName": "",
+              "visible": true,
+              "min": "AUTO",
+              "max": "AUTO",
+              "position": "LEFT",
+              "queryIds": [
+                "A",
+                ""
+              ],
+              "defaultAxis": true
+            }
+          ]
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "honeycombSettings": {}
+      },
+      "queriesSettings": {
+        "resolution": ""
+      }
+    },
+    {
+      "name": "Synthetic Requests Total",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 1634,
+        "left": 0,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {},
+      "customName": "Synthetic Requests Total",
+      "queries": [
+        {
+          "id": "A",
+          "timeAggregation": "DEFAULT",
+          "metricSelector": "builtin:billing.synthetic.requests:splitBy():value:auto:sort(value(sum,descending)):limit(10):default(0)",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT"
+            },
+            "seriesOverrides": []
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": [
+            {
+              "displayName": "",
+              "visible": true,
+              "min": "AUTO",
+              "max": "AUTO",
+              "position": "LEFT",
+              "queryIds": [
+                "A",
+                ""
+              ],
+              "defaultAxis": true
+            }
+          ]
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "honeycombSettings": {}
+      },
+      "queriesSettings": {
+        "resolution": ""
+      }
+    },
+    {
+      "name": "Third-party Results Total",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 1938,
+        "left": 0,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {},
+      "customName": "Explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "timeAggregation": "DEFAULT",
+          "metricSelector": "builtin:billing.synthetic.external:splitBy():avg:auto:sort(value(avg,descending)):limit(1):default(0)",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT"
+            },
+            "seriesOverrides": []
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "honeycombSettings": {}
+      },
+      "queriesSettings": {
+        "resolution": ""
+      }
+    },
+    {
+      "name": "DDUs Billed from Metrics Total",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 2318,
+        "left": 0,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {},
+      "customName": "Explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "timeAggregation": "DEFAULT",
+          "metricSelector": "builtin:billing.ddu.metrics.total:splitBy():sum:auto:sort(value(sum,descending)):limit(1):default(0)",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT"
+            },
+            "seriesOverrides": []
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "honeycombSettings": {}
+      },
+      "queriesSettings": {
+        "resolution": ""
+      }
+    },
+    {
+      "name": "DDUs Billed from Serverless Total",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 2622,
+        "left": 0,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {},
+      "customName": "Explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "timeAggregation": "DEFAULT",
+          "metricSelector": "builtin:billing.ddu.serverless.total:splitBy():sum:auto:sort(value(sum,descending)):limit(1):default(0)",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT"
+            },
+            "seriesOverrides": []
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "honeycombSettings": {}
+      },
+      "queriesSettings": {
+        "resolution": ""
+      }
+    },
+    {
+      "name": "DDUs Billed from Logs Total",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 2926,
+        "left": 0,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {},
+      "customName": "Explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "timeAggregation": "DEFAULT",
+          "metricSelector": "builtin:billing.ddu.log.total:splitBy():sum:auto:sort(value(sum,descending)):limit(1):default(0)",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT"
+            },
+            "seriesOverrides": []
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "honeycombSettings": {}
+      },
+      "queriesSettings": {
+        "resolution": ""
+      }
+    },
+    {
+      "name": "DDUs Billed from Events Total",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 3230,
+        "left": 0,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {},
+      "customName": "Explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "timeAggregation": "DEFAULT",
+          "metricSelector": "builtin:billing.ddu.events.byEntity:splitBy():sum:auto:sort(value(sum,descending)):limit(1):default(0)",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT"
+            },
+            "seriesOverrides": []
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "honeycombSettings": {}
+      },
+      "queriesSettings": {
+        "resolution": ""
+      }
+    },
+    {
+      "name": "DDUs Billed from Traces Total",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 3534,
+        "left": 0,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {},
+      "customName": "Explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "timeAggregation": "DEFAULT",
+          "metricSelector": "builtin:billing.ddu.traces.total:splitBy():sum:auto:sort(value(sum,descending)):limit(1):default(0)",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT"
+            },
+            "seriesOverrides": []
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "honeycombSettings": {}
+      },
+      "queriesSettings": {
+        "resolution": ""
+      }
+    },
+    {
+      "name": "DDUs Billed from Traces per Entity",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 3534,
+        "left": 304,
+        "width": 608,
+        "height": 304
+      },
+      "tileFilter": {},
+      "customName": "Explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "timeAggregation": "DEFAULT",
+          "metricSelector": "builtin:billing.ddu.traces.byEntity:splitBy(\"dt.entity.monitored_entity\"):sum:auto:sort(value(sum,descending))",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "GRAPH_CHART",
+        "global": {
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT"
+            },
+            "seriesOverrides": []
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": [
+            {
+              "displayName": "",
+              "visible": true,
+              "min": "AUTO",
+              "max": "AUTO",
+              "position": "LEFT",
+              "queryIds": [
+                "A"
+              ],
+              "defaultAxis": true
+            }
+          ]
+        },
+        "heatmapSettings": {},
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "columnId": "Davis data units traces consumption by monitored entity",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "honeycombSettings": {}
+      },
+      "queriesSettings": {
+        "resolution": ""
       }
     }
   ]

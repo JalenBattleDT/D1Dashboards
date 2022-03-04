@@ -3,16 +3,17 @@
     "configurationVersions": [
       5
     ],
-    "clusterVersion": "1.231.223.20211213-130720"
+    "clusterVersion": "1.235.149.20220221-150413"
   },
   "id": "9a53969c-c96f-4ff5-8cc3-8629ba848cfa",
   "dashboardMetadata": {
     "name": "Application Onboarding: Phase 1 Observability",
-    "shared": false,
+    "shared": true,
     "owner": "jalen.battle@dynatrace.com",
     "dashboardFilter": {
       "timeframe": "-2h"
-    }
+    },
+    "popularity": 1
   },
   "tiles": [
     {
@@ -212,11 +213,26 @@
       "visualConfig": {
         "type": "TABLE",
         "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
           "hideLegend": false
         },
-        "rules": [],
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "B:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
+          }
+        ],
         "axes": {
           "xAxis": {
             "displayName": "",
@@ -314,91 +330,6 @@
       "chartVisible": true
     },
     {
-      "name": "Custom Device Count",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 38,
-        "left": 912,
-        "width": 304,
-        "height": 304
-      },
-      "tileFilter": {},
-      "customName": "Data explorer results",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "builtin:tech.customDevice.count",
-          "spaceAggregation": "AVG",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "filterBy": {
-            "nestedFilters": [],
-            "criteria": []
-          },
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
-          "hideLegend": false
-        },
-        "rules": [],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": [
-            {
-              "displayName": "",
-              "visible": true,
-              "min": "AUTO",
-              "max": "AUTO",
-              "position": "LEFT",
-              "queryIds": [
-                "A"
-              ],
-              "defaultAxis": true
-            }
-          ]
-        },
-        "heatmapSettings": {},
-        "singleValueSettings": {
-          "showTrend": true,
-          "showSparkLine": true,
-          "linkTileColorToThreshold": true
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {
-          "isThresholdBackgroundAppliedToCell": false
-        },
-        "graphChartSettings": {
-          "connectNulls": false
-        }
-      }
-    },
-    {
       "name": "Active Custom Devices",
       "tileType": "DATA_EXPLORER",
       "configured": true,
@@ -429,11 +360,18 @@
       "visualConfig": {
         "type": "TOP_LIST",
         "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
           "hideLegend": false
         },
-        "rules": [],
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
+          }
+        ],
         "axes": {
           "xAxis": {
             "displayName": "",
@@ -511,11 +449,18 @@
       "visualConfig": {
         "type": "TOP_LIST",
         "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
           "hideLegend": false
         },
-        "rules": [],
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
+          }
+        ],
         "axes": {
           "xAxis": {
             "displayName": "",
@@ -582,11 +527,18 @@
       "visualConfig": {
         "type": "TOP_LIST",
         "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
           "hideLegend": false
         },
-        "rules": [],
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
+          }
+        ],
         "axes": {
           "xAxis": {
             "displayName": "",
@@ -653,11 +605,18 @@
       "visualConfig": {
         "type": "TOP_LIST",
         "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
           "hideLegend": false
         },
-        "rules": [],
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
+          }
+        ],
         "axes": {
           "xAxis": {
             "displayName": "",
@@ -724,11 +683,18 @@
       "visualConfig": {
         "type": "TOP_LIST",
         "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
           "hideLegend": false
         },
-        "rules": [],
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
+          }
+        ],
         "axes": {
           "xAxis": {
             "displayName": "",
@@ -816,11 +782,18 @@
       "visualConfig": {
         "type": "TOP_LIST",
         "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
           "hideLegend": false
         },
-        "rules": [],
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
+          }
+        ],
         "axes": {
           "xAxis": {
             "displayName": "",
@@ -882,11 +855,18 @@
       "visualConfig": {
         "type": "TOP_LIST",
         "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
           "hideLegend": false
         },
-        "rules": [],
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
+          }
+        ],
         "axes": {
           "xAxis": {
             "displayName": "",
@@ -948,11 +928,18 @@
       "visualConfig": {
         "type": "TOP_LIST",
         "global": {
-          "theme": "DEFAULT",
-          "seriesType": "LINE",
           "hideLegend": false
         },
-        "rules": [],
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
+          }
+        ],
         "axes": {
           "xAxis": {
             "displayName": "",
@@ -1054,6 +1041,82 @@
       },
       "tileFilter": {},
       "markdown": "## [→ Phase 2](#dashboard;gtf=-2h;gf=all;id=d9ef0f6c-da1c-449b-8567-b1bf13aa9520)\n\n\n"
+    },
+    {
+      "name": "Custom Device Count",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 912,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {},
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "timeAggregation": "DEFAULT",
+          "metricSelector": "builtin:tech.customDevice.count:splitBy():count:auto:sort(value(avg,descending)):limit(10):default(0)*1",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT"
+            },
+            "seriesOverrides": []
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {},
+        "singleValueSettings": {
+          "showTrend": true,
+          "showSparkLine": true,
+          "linkTileColorToThreshold": true
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "honeycombSettings": {}
+      },
+      "queriesSettings": {
+        "resolution": ""
+      }
     }
   ]
 }
